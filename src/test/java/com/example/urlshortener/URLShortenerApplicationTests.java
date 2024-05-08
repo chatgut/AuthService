@@ -1,10 +1,10 @@
-package com.example.microservices;
+package com.example.urlshortener;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class MicroservicesApplicationTests {
+class URLShortenerApplicationTests {
 
 	@Test
 	void contextLoads() {
