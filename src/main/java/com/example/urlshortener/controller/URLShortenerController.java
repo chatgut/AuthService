@@ -19,7 +19,7 @@ public class URLShortenerController {
     }
 
     private static String generateShortUrl() {
-        return UUID.randomUUID().toString().substring(0, 10);
+        return UUID.randomUUID().toString().substring(0, 5);
     }
 
     @GetMapping("/{shortUrl}")
