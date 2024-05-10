@@ -1,8 +1,7 @@
 services:
   db:
-    image: mysql:latest
-    restart: always
-    container_name: url_shortener_db
+    image: 'url_shortener:latest'
+    container_name: url_shortener
     environment:
       MYSQL_ROOT_PASSWORD: password
       MYSQL_DATABASE: url_shortener
