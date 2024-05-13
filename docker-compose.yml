@@ -1,9 +1,19 @@
 services:
-  db:
+  url_shortener:
     image: 'url_shortener:latest'
     container_name: url_shortener
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://db:3306/url_shortener
+    ports:
+      - "8080:8080"
+  db:
+    image: 'mysql:latest'
     environment:
       MYSQL_ROOT_PASSWORD: password
       MYSQL_DATABASE: url_shortener
     ports:
       - "3306:3306"
+    volumes:
+      - dbUrls:/var/lib/mysql
+volumes:
+  dbUrls:
