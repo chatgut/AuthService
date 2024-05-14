@@ -13,7 +13,6 @@ import java.util.logging.Logger;
 public class URLShortenerService {
 
     private final URLShortenerRepository urlShortenerRepository;
-
     private static final Logger logger = Logger.getLogger(URLShortenerService.class.getName());
 
     public URLShortenerService(URLShortenerRepository urlShortenerRepository) {
@@ -24,6 +23,16 @@ public class URLShortenerService {
         String shortURL = generateShortURL(longURL);
         urlShortenerRepository.save(new URLShortenerEntity(longURL, shortURL));
         return shortURL;
+    }
+
+    public String getLongURL(String shortURL) {
+        URLShortenerEntity entity = urlShortenerRepository.findByShortURL(shortURL);
+        if (entity != null) {
+            return entity.getLongURL();
+        } else {
+            logger.log(Level.WARNING, "Short URL not found: " + shortURL);
+            throw new RuntimeException("Short URL not found");
+        }
     }
 
     private String generateShortURL(String longURL) {
