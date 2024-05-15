@@ -21,7 +21,8 @@ public class URLShortenerService {
 
     public String shortenURL(String longURL) {
         String shortURL = generateShortURL(longURL);
-        urlShortenerRepository.save(new URLShortenerEntity(longURL, shortURL));
+        URLShortenerEntity entity = new URLShortenerEntity(longURL, shortURL);
+        urlShortenerRepository.save(entity);
         return shortURL;
     }
 
