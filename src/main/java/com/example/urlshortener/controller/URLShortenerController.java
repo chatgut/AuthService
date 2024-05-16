@@ -1,5 +1,7 @@
 package com.example.urlshortener.controller;
 
+import com.example.urlshortener.dto.UrlRequest;
+import com.example.urlshortener.dto.UrlResponse;
 import com.example.urlshortener.service.URLShortenerService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -20,9 +22,10 @@ public class URLShortenerController {
     }
 
     @PostMapping("/shorten")
-    public ResponseEntity<String> shortenURL(@RequestBody String longURL) {
+    public ResponseEntity<UrlResponse> shortenURL(@RequestBody UrlRequest urlRequest) {
+        String longURL = urlRequest.getUrl();
         String shortURL = urlShortenerService.shortenURL(longURL);
-        return new ResponseEntity<>(shortURL, HttpStatus.OK);
+        return new ResponseEntity<>(new UrlResponse(shortURL), HttpStatus.OK);
     }
 
     @GetMapping("/{shortUrl}")

@@ -9,16 +9,14 @@ The short URL can then be used to redirect back to the long URL.
 # How to use the service 
 POST Request: http://localhost:8080/api/url/shorten
 
-- Add this into a Raw JSON Body:
+- Go to 'Body' (choose 'raw' and 'JSON')
 
-{
-"url": "https://www.facebook.com/example/very/long/url"
-}
+Add: { "url": "https://www.facebook.com/example/very/long/url" }
 
-Example response: http://localhost:8080/e5a8e33
+Example response: http://localhost:8080/abc123
 
 - To get redirected back to the original url:
 
-GET Request: http://localhost:8080/e5a8e33
+GET Request: http://localhost:8080/abc123
 
 Response: https://www.facebook.com/example/very/long/url
