@@ -38,7 +38,7 @@ public class URLShortenerService {
 
     private String generateShortURL(String longURL) {
         String hash = generateHash(longURL);
-        return "http://localhost:8080/" + hash.substring(0, 6);
+        return "http://localhost:8080/" + hash.substring(0, 7);
     }
 
     private String generateHash(String longURL) {

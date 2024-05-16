@@ -13,10 +13,10 @@ POST Request: http://localhost:8080/api/url/shorten
 
 Add: { "url": "https://www.facebook.com/example/very/long/url" }
 
-Example response: http://localhost:8080/abc123
+Example response: http://localhost:8080/abc1234
 
 - To get redirected back to the original url:
 
-GET Request: http://localhost:8080/abc123
+GET Request: http://localhost:8080/abc1234
 
 Response: https://www.facebook.com/example/very/long/url
