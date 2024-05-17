@@ -7,16 +7,16 @@ The short URL can then be used to redirect back to the long URL.
 - Use 'docker-compose up'
 
 # How to use the service 
-POST Request: http://localhost:8080/api/url/shorten
+POST Request: http://localhost:8080/shorten
 
 - Go to 'Body' (choose 'raw' and 'JSON')
 
-Add: { "url": "https://www.facebook.com/example/very/long/url" }
+Add: { "url": "https://www.facebook.com/very/long/url/example" }
 
-Example response: http://localhost:8080/api/url/shorten/abc1234
+Example response: http://localhost:8080/abc1234
 
 - To get redirected back to the original url:
 
-GET Request: http://localhost:8080/api/url/shorten/abc1234
+GET Request: http://localhost:8080/abc1234
 
-Response: https://www.facebook.com/example/very/long/url
+Response: https://www.facebook.com/very/long/url/example

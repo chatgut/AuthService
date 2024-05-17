@@ -1,6 +1,6 @@
 services:
   url_shortener:
-    image: 'url_shortener1:latest'
+    image: 'url_shortener:latest'
     container_name: url_shortener
     environment:
       SPRING_DATASOURCE_URL: jdbc:mysql://db:3306/url_shortener
