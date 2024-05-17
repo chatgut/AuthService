@@ -18,19 +18,21 @@ POST Request: http://localhost:8080/shorten
 - Go to 'Body' (choose 'raw' and 'JSON')
 
 Add:
-``
+
+````
 {
 "url": "https://www.facebook.com/very/long/url/example"
 }
-``
+````
 
 <h4>Example response:</h4>
+
 ````
 {
 "shortUrl": "http://localhost:8080/abc1234"
 }
 ````
 
-- To get redirected back to the original url:
+<h4> To get redirected back to the original url: </h4>
 
 GET Request: http://localhost:8080/abc1234
