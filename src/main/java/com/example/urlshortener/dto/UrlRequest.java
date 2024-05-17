@@ -3,6 +3,8 @@ package com.example.urlshortener.dto;
 public class UrlRequest {
     private String url;
 
+    public UrlRequest(){}
+
     public UrlRequest(String url) {
         this.url = url;
     }

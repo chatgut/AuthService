@@ -6,6 +6,7 @@ import com.example.urlshortener.service.URLShortenerService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import org.springframework.web.servlet.view.RedirectView;
 
 import java.util.logging.Logger;
@@ -24,11 +25,15 @@ public class URLShortenerController {
     @PostMapping("/shorten")
     public ResponseEntity<UrlResponse> shortenURL(@RequestBody UrlRequest urlRequest) {
         String shortURL = urlShortenerService.shortenURL(urlRequest.getUrl());
-        UrlResponse urlResponse = new UrlResponse(shortURL);
+        UrlResponse urlResponse = new UrlResponse(ServletUriComponentsBuilder
+                .fromCurrentRequest()
+                .path("/{shortUrl}")
+                .buildAndExpand(shortURL)
+                .toUriString());
         return new ResponseEntity<>(urlResponse, HttpStatus.OK);
     }
 
-    @GetMapping("/{shortUrl}")
+    @GetMapping("/shorten/{shortUrl}")
     public RedirectView getLongUrl(@PathVariable("shortUrl") String shortUrl) {
         LOG.info(String.format("Getting long URL for short URL: %s", shortUrl));
         String longUrl = urlShortenerService.getLongURL(shortUrl);
