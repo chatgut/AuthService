@@ -18,7 +18,7 @@ POST Request: http://localhost:8080/shorten
 
 - Go to 'Body' (choose 'raw' and 'JSON')
 
-Add:
+<h4>Add:</h4>
 
 ````
 {
@@ -34,6 +34,6 @@ Add:
 }
 ````
 
-<h4> To get redirected back to the original url: </h4>
+<h4> Now you can use the short url: </h4>
 
 GET Request: http://localhost:8080/abc1234
