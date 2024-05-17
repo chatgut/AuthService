@@ -13,6 +13,7 @@ The short URL can then be used to redirect to the website.
 - docker-compose up
 
 <h2> How to use the service </h2>
+
 POST Request: http://localhost:8080/shorten
 
 - Go to 'Body' (choose 'raw' and 'JSON')
